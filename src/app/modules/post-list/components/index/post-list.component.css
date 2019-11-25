@@ -1,0 +1,10 @@
+.list{
+  width: 70%;
+  height: 200px;
+  margin: 16px 0;
+  padding: 16px;
+}
+
+.align{
+  text-align: right;
+}

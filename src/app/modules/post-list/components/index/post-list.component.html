@@ -1,0 +1,13 @@
+<div *ngFor="let post of listPosts" [ngClass]="getClassCss(post)">
+  <table>
+    <tr>
+      <td style="width: 81%;"><h3>{{ post.title }}</h3></td>
+      <td>{{ post.dateCreate | date: 'short' }}</td>
+    </tr>
+  </table>
+  {{ post.content }}<br><br>
+  <div>
+    <button class="btn-success" (click)=incrementerLove(post)>Love it {{ post.likes }}</button> &nbsp;
+    <button class="btn-danger" (click)=decrementerLove(post)>Don't love it {{ post.dislikes }}</button>
+  </div>
+</div>
