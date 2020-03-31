@@ -1,12 +1,19 @@
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { RootComponent } from './components/root/root.component';
-import { PostListComponent } from './modules/post-list/components/index/post-list.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './components/header/header.component';
+import { RootComponent } from './containers/root/root.component';
+import { PostsModule } from './modules/posts/posts.module';
+
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
-  declarations: [RootComponent, PostListComponent],
-  imports: [BrowserModule],
+  declarations: [RootComponent, HeaderComponent],
+  imports: [BrowserModule, PostsModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [RootComponent]
 })

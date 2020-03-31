@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Posts</h3>
+    <div class="list-group">
+      <div [ngClass]="getClassCss(post)" *ngFor="let post of pageOfItems; let i = index ">
+        <div>
+          <div class="align-right date" *ngIf="post.dateCreate">Dernière modification {{ post.dateCreate | date:'d MMMM y' }}</div>
+          <div>
+            <h3 class="list-group-item-heading">
+              {{ post.title }}
+            </h3>
+          </div>
+        </div>
+        <button class="btn btn-default pull-right" (click)="onDeletePost(post)">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        <p class="list-group-item-text">{{ post.content }}</p>
+        <div>
+          <a href (click)=incrementerLove(post)><img class="img-thumbnail" alt="like" src="assets/img/like.png"/></a>&nbsp;({{ post.likes }})&nbsp;
+          <a href (click)=decrementerLove(post)><img class="img-thumbnail" alt="dislike" src="assets/img/dislike.png"/></a>&nbsp;({{ post.dislikes }})&nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="align-right">
+    <jw-pagination [items]="posts" [pageSize]="3" [maxPages]="3" [initialPage]="2" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div>
+

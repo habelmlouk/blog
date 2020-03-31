@@ -1,0 +1,15 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <h1>Créer un nouveau post</h1>
+    <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" id="title" class="second formControl" name="title" placeholder="Titre de votre post" formControlName="title">
+      </div>
+      <div class="form-group">
+        <textarea id="contenu"  name="contenu" class="textarea formControl" placeholder="Contenu de votre post" formControlName="contenu"></textarea>
+      </div>
+      <input type="button" value="Annuler" (click)="onBack()">&nbsp;
+      <input type="submit" value="Ajouter" [disabled]="newPostForm.invalid">
+    </form>
+  </div>
+</div>
