@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./root.component.scss']
 })
 export class RootComponent {
-  constructor() {
+  constructor(private router: Router) {
     const config = {
       apiKey: 'AIzaSyCf3WBqeNU7-1Z-DIX0HC3BrHCJJOvoNJw',
       authDomain: 'blog-8591f.firebaseapp.com',
@@ -22,5 +23,9 @@ export class RootComponent {
     // Initialize Firebase
     firebase.initializeApp(config);
     firebase.analytics();
+  }
+
+  accueil() {
+    this.router.navigate(['./posts']);
   }
 }

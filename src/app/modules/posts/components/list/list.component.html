@@ -4,7 +4,7 @@
     <div class="list-group">
       <div [ngClass]="getClassCss(post)" *ngFor="let post of pageOfItems; let i = index ">
         <div>
-          <div class="align-right date" *ngIf="post.dateCreate">Dernière modification {{ post.dateCreate | date:'d MMMM y' }}</div>
+          <div class="align-right date" *ngIf="post.dateCreate">Dernière modification {{ post.dateCreate | date:'d M y' }}</div>
           <div>
             <h3 class="list-group-item-heading">
               {{ post.title }}
@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="align-right">
-    <jw-pagination [items]="posts" [pageSize]="3" [maxPages]="3" [initialPage]="2" (changePage)="onChangePage($event)"></jw-pagination>
+    <jw-pagination [items]="posts" [pageSize]="2" [maxPages]="2" [initialPage]="1" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
 </div>
 
